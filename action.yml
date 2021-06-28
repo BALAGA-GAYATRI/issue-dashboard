@@ -9,7 +9,7 @@ inputs:
     description: The Personal Authentication Token to use for authentication.
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'lib/main.js'
 branding:
   icon: 'align-left' 
   color: blue
