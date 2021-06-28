@@ -8,6 +8,7 @@
 import { QueryType, Analytics, Section, Widget, GraphWidget, TableWidget, QueryTableWidget, NumberWidget, QueryNumberWidget, ScriptNumberWidget, StringWidget, ScriptStringWidget } from './analytics'
 
 import * as yaml from 'js-yaml'
+import * as fs from 'fs';
 
 export interface OutputConfig {
     format: string
@@ -350,7 +351,8 @@ export class AnalyticsConfig extends Analytics {
             format = ConfigFormat.JSON
         }
         catch (e) {
-            input = yaml.safeLoad(config)
+            // input = yaml.safeLoad(config)
+            input = yaml.safeLoad(fs.readFileSync(config, 'utf8'))
             format = ConfigFormat.YAML
         }
 
