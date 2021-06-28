@@ -346,21 +346,23 @@ export class AnalyticsConfig extends Analytics {
         let format: ConfigFormat
         let input: any
 
-        try {
-            input = JSON.parse(config)
-            format = ConfigFormat.JSON
-        }
-        catch (e) {
-            // input = yaml.safeLoad(config)
-            input = yaml.safeLoad(fs.readFileSync(config, 'utf8'))
-            format = ConfigFormat.YAML
-        }
+        // try {
+        //     input = JSON.parse(config)
+        //     format = ConfigFormat.JSON
+        // }
+        // catch (e) {
+        //     // input = yaml.safeLoad(config)
+        console.log("////////////  loading yaml file //////////////")
+        input = yaml.safeLoad(fs.readFileSync(config, 'utf8'))
+        console.log(input)
+        format = ConfigFormat.YAML
+        // }
 
-        if (format == ConfigFormat.JSON) {
-            return AnalyticsConfig.load(input)
-        }
-        else {
-            return AnalyticsConfig.load(input)
-        }
+        // if (format == ConfigFormat.JSON) {
+        //     return AnalyticsConfig.load(input)
+        // }
+        // else {
+        return AnalyticsConfig.load(input)
+        // }
     }
 }
